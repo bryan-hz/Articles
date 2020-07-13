@@ -44,17 +44,19 @@
   <details>
   <summary> Arithmetic Operator </summary>
 
-    | Operator | Description |
-    | :------: | :---------: |
-    |   `+`    |             |
-    |   `-`    |             |
-    |   `*`    |             |
-    |   `/`    |             |
-    |   `%`    |             |
+  | Operator | Description |
+  | :------: | :---------: |
+  |   `+`    |             |
+  |   `-`    |             |
+  |   `*`    |             |
+  |   `/`    |             |
+  |   `%`    |             |
 
   </details>
 
-- Relational Operator
+- 
+  <details>
+  <summary> Relational Operator </summary>
   
   | Operator | Description |
   | :------: | :---------: |
@@ -63,9 +65,12 @@
   |   `>`    |             |
   |   `>=`   |             |
   |   `<=`   |             |
+  
+  <details>
 
-
-- Logical Operator
+- 
+  <details>
+  <summary> Logical Operator </summary>
 
   |         Operator          | Description |
   | :-----------------------: | :---------: |
@@ -73,8 +78,11 @@
   | <code>&#124;&#124;</code> |             |
   |            `!`            |             |
 
+  </details>
 
-- Bitwise Operator
+- 
+  <details>
+  <summary>Bitwise Operator</summary>
 
   |      Operator       | Description |
   | :-----------------: | :---------: |
@@ -86,8 +94,11 @@
   |        `<<`         |             |
   |        `>>>`        |             |
 
+  </details>
 
-- Assignment Operator
+- 
+  <details>
+  <summary>Assignment Operator</summary>
 
   |       Operator       | Description |
   | :------------------: | :---------: |
@@ -104,7 +115,8 @@
   |         `&=`         |             |
   | <code>&#124;=</code> |             |
   |         `^=`         |             |
-
+  
+  </details>
 
 - Ternary Operator 
   - `condition ? branch1 : branch2;`
