@@ -18,7 +18,9 @@
 - Compile & Run
 
 ### 2. Variables & Constants
-- Primitive Types
+- 
+  <details>
+  <summary> Primitive Types </summary>
 
   | Data Type |  Size   |                Description                 |
   | :-------: | :-----: | :----------------------------------------: |
@@ -31,7 +33,9 @@
   | `boolean` |  1 bit  |             `true` or `false`              |
   |  `char`   | 1 byte  |         character or ASCII values          |
 
-*( 1 byte = 8 bits )*
+  *( 1 byte = 8 bits )*
+
+  </details>
 
 - Object Type ( Such as `String`, Array, Classes )
 
