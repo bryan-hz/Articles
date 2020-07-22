@@ -1,16 +1,17 @@
 # Introduction to Java
 
-- [1. Setup](#1-setup)
-- [2. Variables & Constants](#2-variables--constants)
-- [3. Operators](#3-operators)
-- [4. Branching & Looping](#4-branching--looping)
-- [5. Debug](#5-debug)
-- [6. Classes](#6-classes)
-- [7. Inheritance & Polymorphism](#7-inheritance--polymorphism)
-- [8. Recursions](#8-recursions)
-- [9. Exception Handling](#9-exception-handling)
-- [10. Libraries](#10-libraries)
-- [11. Algorithms](#11-algorithms)
+- [Introduction to Java](#introduction-to-java)
+    - [1. Setup](#1-setup)
+    - [2. Variables & Constants](#2-variables--constants)
+    - [3. Operators](#3-operators)
+    - [4. Branching & Looping](#4-branching--looping)
+    - [5. Debug](#5-debug)
+    - [6. Classes](#6-classes)
+    - [7. Inheritance & Polymorphism](#7-inheritance--polymorphism)
+    - [8. Recursions](#8-recursions)
+    - [9. Exception Handling](#9-exception-handling)
+    - [10. Libraries](#10-libraries)
+    - [11. Algorithms](#11-algorithms)
 
 ### 1. Setup
 - Environment

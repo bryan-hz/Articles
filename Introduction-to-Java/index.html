@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Introduction to Java</title>
+  </head>
+    <body class="vscode-light">
+        <h1 id="introduction-to-java">Introduction to Java</h1>
+<ul>
+<li><a href="#introduction-to-java">Introduction to Java</a>
+<ul>
+<li><a href="#1-setup">1. Setup</a></li>
+<li><a href="#2-variables--constants">2. Variables &amp; Constants</a></li>
+<li><a href="#3-operators">3. Operators</a></li>
+<li><a href="#4-branching--looping">4. Branching &amp; Looping</a></li>
+<li><a href="#5-debug">5. Debug</a></li>
+<li><a href="#6-classes">6. Classes</a></li>
+<li><a href="#7-inheritance--polymorphism">7. Inheritance &amp; Polymorphism</a></li>
+<li><a href="#8-recursions">8. Recursions</a></li>
+<li><a href="#9-exception-handling">9. Exception Handling</a></li>
+<li><a href="#10-libraries">10. Libraries</a></li>
+<li><a href="#11-algorithms">11. Algorithms</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-setup">1. Setup</h3>
+<ul>
+<li>Environment</li>
+<li>First Program: <em>Hello World</em></li>
+<li>Compile &amp; Run</li>
+</ul>
+<h3 id="2-variables--constants">2. Variables &amp; Constants</h3>
+<ul>
+<li>
+<details>
+<summary> Primitive Types </summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Data Type</th>
+<th style="text-align:center">Size</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>byte</code></td>
+<td style="text-align:center">1 byte</td>
+<td style="text-align:center">integer -2<sup>7</sup> ~ 2<sup>7</sup>-1</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>short</code></td>
+<td style="text-align:center">2 bytes</td>
+<td style="text-align:center">integer -2<sup>15</sup> ~ 2<sup>15</sup>-1</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>int</code></td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center">integer -2<sup>31</sup> ~ 2<sup>31</sup>-1</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>long</code></td>
+<td style="text-align:center">8 bytes</td>
+<td style="text-align:center">integer -2<sup>63</sup> ~ 2<sup>63</sup>-1</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>float</code></td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center">decimal 6 ~ 7 decimal points</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>double</code></td>
+<td style="text-align:center">8 bytes</td>
+<td style="text-align:center">decimal 15 ~ 16 decimal points</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>boolean</code></td>
+<td style="text-align:center">1 bit</td>
+<td style="text-align:center"><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>char</code></td>
+<td style="text-align:center">1 byte</td>
+<td style="text-align:center">character or ASCII values</td>
+</tr>
+</tbody>
+</table>
+<p><em>( 1 byte = 8 bits )</em></p>
+</details>
+</li>
+<li>
+<p>Object Type ( Such as <code>String</code>, Array, Classes )</p>
+</li>
+</ul>
+<h3 id="3-operators">3. Operators</h3>
+<ul>
+<li>
+<details>
+<summary> Arithmetic Operator </summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>*</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%</code></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</details>
+</li>
+<li>
+<details>
+<summary> Relational Operator </summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>==</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>!=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;=</code></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<details>
+</li>
+<li>
+<details>
+<summary> Logical Operator </summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>&amp;&amp;</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>||</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>!</code></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</details>
+</li>
+<li>
+<details>
+<summary>Bitwise Operator</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>&amp;</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>|</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>^</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>~</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;&gt;</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;&lt;</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;&gt;&gt;</code></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</details>
+</li>
+<li>
+<details>
+<summary>Assignment Operator</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>*=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;&gt;=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;&lt;=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&amp;=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>|=</code></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>^=</code></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</details>
+</li>
+<li>
+<p>Ternary Operator</p>
+<ul>
+<li><code>condition ? branch1 : branch2;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-branching--looping">4. Branching &amp; Looping</h3>
+<ul>
+<li>Branching
+<ul>
+<li><code>if</code> statement</li>
+<li><code>switch</code> statement</li>
+</ul>
+</li>
+<li>Looping
+<ul>
+<li><code>while</code> statement</li>
+<li><code>for</code> statement</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-debug">5. Debug</h3>
+<ul>
+<li>Breakpoint</li>
+<li>Call Stack</li>
+</ul>
+<h3 id="6-classes">6. Classes</h3>
+<ul>
+<li><code>static</code></li>
+<li><code>public</code> &amp; <code>private</code> &amp; <code>protected</code></li>
+<li><code>final</code></li>
+<li>Methods</li>
+<li><code>equals</code> &amp; <code>hashcode</code></li>
+<li><code>enum</code> Class</li>
+<li>Nested Class</li>
+</ul>
+<h3 id="7-inheritance--polymorphism">7. Inheritance &amp; Polymorphism</h3>
+<ul>
+<li>Abstract Class</li>
+<li>Interface</li>
+<li><code>extends</code> &amp; <code>implements</code></li>
+<li><code>override</code></li>
+</ul>
+<h3 id="8-recursions">8. Recursions</h3>
+<h3 id="9-exception-handling">9. Exception Handling</h3>
+<h3 id="10-libraries">10. Libraries</h3>
+<ul>
+<li><code>java.util.Collections</code>
+<ul>
+<li><code>List</code></li>
+<li><code>Map</code></li>
+<li><code>Set</code></li>
+<li><code>Queue</code></li>
+<li><code>Deque</code></li>
+</ul>
+</li>
+<li><code>java.util.PriorityQueue</code></li>
+<li><code>java.util.stream</code>
+<ul>
+<li><code>map</code></li>
+<li><code>filter</code></li>
+<li><code>reduce</code></li>
+<li><code>collect</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="11-algorithms">11. Algorithms</h3>
+<ul>
+<li>Big O notation</li>
+<li>Sorting
+<ul>
+<li>Quick Sort</li>
+<li>Bubble Sort</li>
+<li>Heap Sort</li>
+<li><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/sorting.html#:~:text=Sorting%20is%20ordering%20a%20list,it%20is%20called%20external%20sorting."><em>Read More</em></a></li>
+</ul>
+</li>
+<li>Binary Search Tree</li>
+</ul>
+
+    </body>
+    </html>

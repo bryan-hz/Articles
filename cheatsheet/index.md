@@ -99,3 +99,8 @@ term
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
+
+```java
+int a = 2;
+List<String> list = new ArrayList<>();
+```
