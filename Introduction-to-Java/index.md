@@ -47,11 +47,11 @@
 
   | Operator | Description |
   | :------: | :---------: |
-  |   `+`    |             |
-  |   `-`    |             |
-  |   `*`    |             |
-  |   `/`    |             |
-  |   `%`    |             |
+  |   `+`    |    plus     |
+  |   `-`    |    minor    |
+  |   `*`    |  multiple   |
+  |   `/`    |   divide    |
+  |   `%`    |     mod     |
 
   </details>
 
@@ -59,41 +59,41 @@
   <details>
   <summary> Relational Operator </summary>
   
-  | Operator | Description |
-  | :------: | :---------: |
-  |   `==`   |             |
-  |   `!=`   |             |
-  |   `>`    |             |
-  |   `>=`   |             |
-  |   `<=`   |             |
+  | Operator |   Description    |
+  | :------: | :--------------: |
+  |   `==`   |      equal       |
+  |   `!=`   |    not equal     |
+  |   `>`    |     greater      |
+  |   `>=`   | greater or equal |
+  |   `<=`   |  less or equal   |
   
-  <details>
+  </details>
 
 - 
   <details>
   <summary> Logical Operator </summary>
 
-  |         Operator          | Description |
-  | :-----------------------: | :---------: |
-  |           `&&`            |             |
-  | <code>&#124;&#124;</code> |             |
-  |            `!`            |             |
+  | Operator | Description |
+  | :------: | :---------: |
+  |   `&&`   |     and     |
+  |   `||`   |     or      |
+  |   `!`    |     not     |
 
   </details>
 
 - 
   <details>
-  <summary>Bitwise Operator</summary>
+  <summary>Bitwise Operator (Optional)</summary>
 
-  |      Operator       | Description |
-  | :-----------------: | :---------: |
-  |         `&`         |             |
-  | <code>&#124;</code> |             |
-  |         `^`         |             |
-  |         `~`         |             |
-  |        `>>`         |             |
-  |        `<<`         |             |
-  |        `>>>`        |             |
+  | Operator |     Description      |
+  | :------: | :------------------: |
+  |   `&`    |      binary and      |
+  |   `|`    |      binary or       |
+  |   `^`    |      binary xor      |
+  |   `~`    |      binary not      |
+  |   `>>`   |     right shift      |
+  |   `<<`   |      left shift      |
+  |  `>>>`   | unsigned right shift |
 
   </details>
 
@@ -101,26 +101,37 @@
   <details>
   <summary>Assignment Operator</summary>
 
-  |       Operator       | Description |
-  | :------------------: | :---------: |
-  |         `=`          |             |
-  |         `+=`         |             |
-  |         `-=`         |             |
-  |                      |             |
-  |         `*=`         |             |
-  |         `/=`         |             |
-  |         `%=`         |             |
-  |                      |             |
-  |        `>>=`         |             |
-  |        `<<=`         |             |
-  |         `&=`         |             |
-  | <code>&#124;=</code> |             |
-  |         `^=`         |             |
+  | Operator | Description |
+  | :------: | :---------: |
+  |   `=`    |   assign    |
+  |   `+=`   |  increment  |
+  |   `-=`   |  decrement  |
+  |          |             |
+  |   `*=`   |     ...     |
+  |   `/=`   |     ...     |
+  |   `%=`   |     ...     |
+  |          |             |
+  |  `>>=`   |     ...     |
+  |  `<<=`   |     ...     |
+  |   `&=`   |     ...     |
+  |   `|=`   |     ...     |
+  |   `^=`   |     ...     |
   
   </details>
 
+- 
+  <details>
+  <summary>Special Operator</summary>
+
+  | Operator |  Description  |
+  | :------: | :-----------: |
+  |   `++`   | same as `+=1` |
+  |   `--`   | same as `-=1` |
+
+  </details>
+
 - Ternary Operator 
-  - `condition ? branch1 : branch2;`
+  - `CONDITION ? BRANCH_1 : BRANCH_2;`
 
 ### 4. Branching & Looping
 - Branching
@@ -129,6 +140,8 @@
 - Looping
   - `while` statement
   - `for` statement
+    * Basic: `for (INIT; CONDITION; INCREMENT)` 
+    * For each: `for (ITEM DEFINITION: COLLECTION)`
 
 ### 5. Debug
 - Breakpoint
@@ -160,6 +173,7 @@
   - `Set`
   - `Queue`
   - `Deque`
+- `java.util.Stack`
 - `java.util.PriorityQueue`
 - `java.util.stream`
   - `map`

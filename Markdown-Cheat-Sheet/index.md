@@ -50,9 +50,6 @@ These are the elements outlined in John Gruber’s original design document. All
 
 [title](https://www.example.com)
 
-### Image
-
-![alt text](image.jpg)
 
 ## Extended Syntax
 
