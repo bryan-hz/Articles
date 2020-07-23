@@ -400,13 +400,10 @@
     }
     // this loops using a iterator
     ```
-    what happens in `for` loop:
-    ```mermaid
-    graph TD
-      A(Initialization int i = 0) --> B(Check condition i < 10)
-      B -- false --> D{Exit}
-      B -- true --> C[print i] --> E(Increment i++) --> B
-    ```
+    ***what happens in `for` loop:***
+
+    ![mermaid-diagram](forLoopFlow.svg)
+
 
   * <details open><summary>For-each loop (A neater way for iterating collections)</summary>
     
