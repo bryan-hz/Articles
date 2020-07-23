@@ -101,3 +101,8 @@ term
 int a = 2;
 List<String> list = new ArrayList<>();
 ```
+
+### Mermaid Examples 
+
+* [examples](https://mermaid-js.github.io/mermaid/#/examples)
+* [flowchart](https://mermaid-js.github.io/mermaid/#/flowchart)

@@ -7,6 +7,8 @@
     - [2. Comment](#2-comment)
     - [3. Definition](#3-definition)
     - [4. Operators](#4-operators)
+    - [5. Branching](#5-branching)
+    - [6. Loop](#6-loop)
 
 ### 1. First Program
 
@@ -167,12 +169,12 @@
     ```
 
   * All capital for constants
-   ```java
-   int MAX_SIZE = 5;
+    ```java
+    int MAX_SIZE = 5;
 
-   // Even better with `final` keyword
-   final int THRESHOLD = 2;
-   ```
+    // Even better with `final` keyword
+    final int THRESHOLD = 2;
+    ```
 
 * <details open><summary><em>Optional (but important): <b>How variables are stored in memory</b></em>*</summary>
 
@@ -257,3 +259,204 @@
   flag = (true && (true || false)); // flag = true
   flag = !(true && (true || false)); // flag = false
   ```
+
+### 5. Branching
+
+* <details open><summary><code>if/else</code> (Only 1 branch will be executed)</summary>
+
+  * Binary branching
+    ```java
+    boolean flag = true;
+    if (flag) {
+      // when flag is true, this block will be executed
+      System.out.println("Branch 1");
+    } else {
+      // when flag is false, this block will be executed
+      System.out.println("Branch 2");
+    }
+    ```
+  
+  * More than 2 branches
+    ```java
+    boolean flag1 = false;
+    boolean flag2 = true;
+    // it will check condition from top to bottom, whichever condition meets first
+    if (flag1 && flag2) {
+      // when flag1 and flag2 are both true
+      System.out.println("Branch 1");
+    } else if (!flag1 && flag2 ) {
+      // when flag1 is false and flag2 is true
+      System.out.println("Branch 2");
+    } else if (flag1 && !flag2) {
+      // when flag1 is true and flag2 is false 
+      System.out.println("Branch 3");
+    } else {
+      // when flag1 and flag2 are both false
+      System.out.println("Branch 4");
+    }
+    ```
+  
+* <details open><summary><code>switch/case</code></summary>
+
+  * Syntax
+    ```java
+    String today = "Monday";
+    switch (today) {
+      case "Monday": {
+        System.out.println("Branch 1");
+      }
+
+      case "Tuesday": {
+        System.out.println("Branch 2");
+      }
+
+      case "Wednesday": {
+        System.out.println("Branch 3");
+      }
+
+      default: {
+        // fallback if it does not match any of the cases
+      }
+    }
+    // Problem: this will go through all branches
+    // Why? `switch` will execute the first match case and any cases below it
+    // How to fix this? Add `break;` at the end of each case
+    switch (today) {
+      case "Monday": {
+        System.out.println("Branch 1");
+        break;
+      }
+
+      case "Tuesday": {
+        System.out.println("Branch 2");
+        break;
+      }
+
+      case "Wednesday": {
+        System.out.println("Branch 3");
+        break;
+      }
+
+      default: {
+        // fallback if it does not match any of the cases
+        break;
+      }
+    }
+    ```
+  * Scope and `break`
+    * `{}` defines a scope
+      ```java
+      {
+        int a = 2;
+        System.out.println(a); // `a` within scope
+      }
+      System.out.println(a); // Error: `a` out of scope
+      ```
+    * `break` used for jumping out of a `switch` statement or a loop, more details see loop section below
+
+### 6. Loop
+
+* <details open><summary><code>while</code> loop</summary>
+
+  * `while` (Check first then execute block)
+    ```java
+    // increment counter to 10;
+    int counter = 0;
+    while (counter < 10) {
+      counter += 1;
+    }
+    // `counter < 10` is the condition for `while` loop
+    // it will keep looping as long as `counter < 10` is evaluated to be `true`
+
+    counter = 10;
+    while (counter < 10) {
+      System.out.println(counter); // this will not be executed
+      counter += 1;
+    }
+    // it is possible that statements in `while` loop are NOT executed
+    ```
+
+  * `do/while` (Execute block first then check)
+    ```java
+    int counter = 10;
+    do {
+      counter += 1;
+    } while (counter < 10);
+    // After do/while, counter is 11
+    // Statements in `do/while` will be executed at least 1 time
+    ```
+
+* <details open><summary><code>for</code> loop</summary>
+
+  * <details open><summary>Basic <code>for</code> loop</summary>
+  
+    ```java
+    for (int i = 0; i < 10; i++) {
+      System.out.println(i);
+    }
+    // this loops using a iterator
+    ```
+    what happens in `for` loop:
+    ```mermaid
+    graph TD
+      A((Initialization<br/>int i = 0)) --> B(Check condition i < 10)
+      B -- false --> D{Exit}
+      B -- true --> C[print i] --> E(Increment i++) --> B
+    ```
+
+  * <details open><summary>For-each loop (A neater way for iterating collections)</summary>
+    
+    ```java
+    String[] cpuBrands = { "Intel", "AMD" };
+
+    // Note: `:` reads as "in"
+    // Whole reads as: "For string brand in cpuBrands"
+    for (String brand: cpuBrands) {
+      System.out.println(brand);
+    }
+    // it hides the iterator
+    // And iterates each item in collection directly and in order
+    ```
+  
+* <details open><summary><code>break</code> and <code>continue</code> in loop</summary>
+
+  * `break` for early stopping
+    ```java
+    // increment counter to only 5
+    int counter = 0;
+    while (counter < 10) {
+      if (counter == 5) {
+        break;
+      }
+      counter++;
+    }
+
+    // for nested looping, `break` only jump out 1 level higher
+    for (int i = 0; i < 10; i++) {
+      int counter = 0;
+      while (counter < 10) {
+        if (counter == 5) {
+          break;
+        }
+        counter += 1;
+      }
+      // `break` statement will land here
+    }
+    ```
+  * `continue` for skipping rest of current round
+    ```java
+    for (int i = 0; i < 10; i++) {
+      continue;
+      System.out.println(i); // this statement will NEVER be executed
+    }
+
+    // For nested loop
+    // `continue` will only effect on current loop
+    for (int i = 0; i < 10; i++) {
+      for (int j = 0; j < 10; j++) {
+        continue;
+        System.out.print(i); // This will next be executed
+      }
+      System.out.print(j); // No effect on this
+    }
+    ```
