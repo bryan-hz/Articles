@@ -403,7 +403,7 @@
     what happens in `for` loop:
     ```mermaid
     graph TD
-      A((Initialization<br/>int i = 0)) --> B(Check condition i < 10)
+      A(Initialization int i = 0) --> B(Check condition i < 10)
       B -- false --> D{Exit}
       B -- true --> C[print i] --> E(Increment i++) --> B
     ```
