@@ -2,6 +2,8 @@
 
 *2020-07-15 by Bryan*
 
+<div id="toc">
+
 - [Introduction to Java](#introduction-to-java)
     - [1. Setup](#1-setup)
     - [2. Variables & Constants](#2-variables--constants)
@@ -14,6 +16,8 @@
     - [9. Exception Handling](#9-exception-handling)
     - [10. Libraries](#10-libraries)
     - [11. Algorithms](#11-algorithms)
+
+</div>
 
 ### 1. Setup
 - Environment

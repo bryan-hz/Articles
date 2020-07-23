@@ -2,6 +2,8 @@
 
 *2020-07-21 by Bryan*
 
+<div id="toc">
+
 - [Java Week 1](#java-week-1)
     - [1. First Program](#1-first-program)
     - [2. Comment](#2-comment)
@@ -9,6 +11,8 @@
     - [4. Operators](#4-operators)
     - [5. Branching](#5-branching)
     - [6. Loop](#6-loop)
+
+</div>
 
 ### 1. First Program
 
