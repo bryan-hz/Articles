@@ -1,5 +1,7 @@
 # Introduction to Java
 
+*2020-07-15 by Bryan*
+
 - [Introduction to Java](#introduction-to-java)
     - [1. Setup](#1-setup)
     - [2. Variables & Constants](#2-variables--constants)

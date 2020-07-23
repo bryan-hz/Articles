@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Introduction to Java</title>
+        <title>Java Week 1</title>
         <style>
 /* From extension bierner.markdown-preview-github-styles */
 body {
@@ -875,7 +875,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -889,415 +890,272 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
     <body class="vscode-light">
-        <h1 id="introduction-to-java">Introduction to Java</h1>
-<p><em>2020-07-15 by Bryan</em></p>
+        <h1 id="java-week-1">Java Week 1</h1>
+<p><em>2020-07-21 by Bryan</em></p>
 <ul>
-<li><a href="#introduction-to-java">Introduction to Java</a>
+<li><a href="#java-week-1">Java Week 1</a>
 <ul>
-<li><a href="#1-setup">1. Setup</a></li>
-<li><a href="#2-variables--constants">2. Variables &amp; Constants</a></li>
-<li><a href="#3-operators">3. Operators</a></li>
-<li><a href="#4-branching--looping">4. Branching &amp; Looping</a></li>
-<li><a href="#5-debug">5. Debug</a></li>
-<li><a href="#6-classes">6. Classes</a></li>
-<li><a href="#7-inheritance--polymorphism">7. Inheritance &amp; Polymorphism</a></li>
-<li><a href="#8-recursions">8. Recursions</a></li>
-<li><a href="#9-exception-handling">9. Exception Handling</a></li>
-<li><a href="#10-libraries">10. Libraries</a></li>
-<li><a href="#11-algorithms">11. Algorithms</a></li>
+<li><a href="#1-first-program">1. First Program</a></li>
+<li><a href="#2-comment">2. Comment</a></li>
+<li><a href="#3-definition">3. Definition</a></li>
+<li><a href="#4-operators">4. Operators</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="1-setup">1. Setup</h3>
+<h3 id="1-first-program">1. First Program</h3>
 <ul>
-<li>Environment</li>
-<li>First Program: <em>Hello World</em></li>
-<li>Compile &amp; Run</li>
+<li>Create a new directory<pre><code class="language-sh"><div><span class="hljs-comment"># In your terminal run following</span>
+$ mkdir myProgram
+$ <span class="hljs-built_in">cd</span> myProgram
+</div></code></pre>
+</li>
+<li>Create a file named <code>HelloWorld.java</code><pre><code class="language-java"><div><span class="hljs-comment">// HelloWorld.java file</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span> </span>{
+  <span class="hljs-comment">// This is the entry of your program</span>
+  <span class="hljs-comment">// You cannot change the definition of this function</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] argv)</span> </span>{
+    System.out.println(<span class="hljs-string">"Hello World!"</span>);
+  }
+}
+</div></code></pre>
+</li>
+<li>Compile your code<pre><code class="language-sh"><div><span class="hljs-comment"># In your terminal run following</span>
+$ javac HelloWorld.java
+
+$ ls
+HelloWorld.class HelloWorld.java
+<span class="hljs-comment"># Your should expect to see a new file `HelloWorld.class` generated</span>
+</div></code></pre>
+</li>
+<li>Run your code<pre><code class="language-sh"><div>$ java HelloWorld
+Hello World!
+<span class="hljs-comment"># Done!</span>
+</div></code></pre>
+</li>
 </ul>
-<h3 id="2-variables--constants">2. Variables &amp; Constants</h3>
+<h3 id="2-comment">2. Comment</h3>
 <ul>
 <li>
-<details>
-<summary> Primitive Types </summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Data Type</th>
-<th style="text-align:center">Size</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>byte</code></td>
-<td style="text-align:center">1 byte</td>
-<td style="text-align:center">integer -2<sup>7</sup> ~ 2<sup>7</sup>-1</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>short</code></td>
-<td style="text-align:center">2 bytes</td>
-<td style="text-align:center">integer -2<sup>15</sup> ~ 2<sup>15</sup>-1</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>int</code></td>
-<td style="text-align:center">4 bytes</td>
-<td style="text-align:center">integer -2<sup>31</sup> ~ 2<sup>31</sup>-1</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>long</code></td>
-<td style="text-align:center">8 bytes</td>
-<td style="text-align:center">integer -2<sup>63</sup> ~ 2<sup>63</sup>-1</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>float</code></td>
-<td style="text-align:center">4 bytes</td>
-<td style="text-align:center">decimal 6 ~ 7 decimal points</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>double</code></td>
-<td style="text-align:center">8 bytes</td>
-<td style="text-align:center">decimal 15 ~ 16 decimal points</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>boolean</code></td>
-<td style="text-align:center">1 bit</td>
-<td style="text-align:center"><code>true</code> or <code>false</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>char</code></td>
-<td style="text-align:center">1 byte</td>
-<td style="text-align:center">character or ASCII values</td>
-</tr>
-</tbody>
-</table>
-<p><em>( 1 byte = 8 bits )</em></p>
-</details>
+<details open><summary>Single line comment</summary>
+<pre><code class="language-java"><div><span class="hljs-comment">// This is a comment</span>
+<span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>; <span class="hljs-comment">// content after '//' will be ignored</span>
+</div></code></pre>
 </li>
 <li>
-<p>Object Type ( Such as <code>String</code>, Array, Classes )</p>
-</li>
-</ul>
-<h3 id="3-operators">3. Operators</h3>
-<ul>
-<li>
-<details>
-<summary> Arithmetic Operator </summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operator</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>+</code></td>
-<td style="text-align:center">plus</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>-</code></td>
-<td style="text-align:center">minor</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>*</code></td>
-<td style="text-align:center">multiple</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>/</code></td>
-<td style="text-align:center">divide</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>%</code></td>
-<td style="text-align:center">mod</td>
-</tr>
-</tbody>
-</table>
-</details>
+<details open><summary>One or more lines of comment</summary>
+<pre><code class="language-java"><div><span class="hljs-comment">/**
+ * Content between '/**' and '*\/' will be ignored
+ */</span>
+<span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>; <span class="hljs-comment">/** You can also use this for single line comment */</span>
+</div></code></pre>
 </li>
 <li>
-<details>
-<summary> Relational Operator </summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operator</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>==</code></td>
-<td style="text-align:center">equal</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>!=</code></td>
-<td style="text-align:center">not equal</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&gt;</code></td>
-<td style="text-align:center">greater</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&gt;=</code></td>
-<td style="text-align:center">greater or equal</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;=</code></td>
-<td style="text-align:center">less or equal</td>
-</tr>
-</tbody>
-</table>
-</details>
+<details open><summary>Convention</summary>
+<ul>
+<li>use <code>//</code> between statements or after one statement</li>
+<li>use <code>/** */</code> for documenting functions, classes or entire file</li>
+</ul>
 </li>
 <li>
-<details>
-<summary> Logical Operator </summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operator</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>&amp;&amp;</code></td>
-<td style="text-align:center">and</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>||</code></td>
-<td style="text-align:center">or</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>!</code></td>
-<td style="text-align:center">not</td>
-</tr>
-</tbody>
-</table>
-</details>
+<details open><summary>Optional: <em>Javadoc</em></summary>
+<p>Documentation see <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html">here</a></p>
+<pre><code class="language-java"><div><span class="hljs-comment">/** 
+ * Get the sum of two numbers
+ *
+ * <span class="hljs-doctag">@param</span> a First number
+ * <span class="hljs-doctag">@param</span> b Second number
+ * <span class="hljs-doctag">@return</span> int This returns sum of a and b
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>{
+  <span class="hljs-keyword">return</span> a + b;
+}
+</div></code></pre>
+</li>
+</ul>
+<h3 id="3-definition">3. Definition</h3>
+<ul>
+<li>
+<details open><summary>Primitive variable types</summary>
+<pre><code class="language-java"><div><span class="hljs-comment">// "int" has 4 bytes =&gt; 32 bits for storing binary digits</span>
+<span class="hljs-comment">// each digit can be 0 or 1</span>
+<span class="hljs-comment">// left-most digit for storing sign bit, positive(0) or negative(1)</span>
+<span class="hljs-comment">// therefore, "int" can store number from 2^(31)-1 ~ -2^31 (note: -1 because of 0)</span>
+<span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">short</span> b = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">long</span> c = <span class="hljs-number">3</span>;
+
+<span class="hljs-keyword">double</span> d = <span class="hljs-number">1.0</span>;
+<span class="hljs-keyword">float</span> e = <span class="hljs-number">2.0</span>;
+
+<span class="hljs-keyword">char</span> character = <span class="hljs-string">'a'</span>;
+
+<span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>; <span class="hljs-comment">// boolean is 1-bit variable type, can only be true(1) or false(0)</span>
+
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> x = <span class="hljs-number">10</span>; <span class="hljs-comment">// with `final` keyword, x cannot be further reassigned</span>
+</div></code></pre>
+<p><em>(Details about size of each type check <code>Introduction-to-Java</code>)</em></p>
 </li>
 <li>
-<details>
-<summary>Bitwise Operator (Optional)</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operator</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>&amp;</code></td>
-<td style="text-align:center">binary and</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>|</code></td>
-<td style="text-align:center">binary or</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>^</code></td>
-<td style="text-align:center">binary xor</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>~</code></td>
-<td style="text-align:center">binary not</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&gt;&gt;</code></td>
-<td style="text-align:center">right shift</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;&lt;</code></td>
-<td style="text-align:center">left shift</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&gt;&gt;&gt;</code></td>
-<td style="text-align:center">unsigned right shift</td>
-</tr>
-</tbody>
-</table>
-</details>
+<details open><summary>None-primitive variable types</summary>
+<pre><code class="language-java"><div>String s = <span class="hljs-string">"abc"</span>;
+
+String[] firstArray = { <span class="hljs-string">"1"</span>, <span class="hljs-string">"2"</span>, <span class="hljs-string">"3"</span> };
+
+String[] secondArray = <span class="hljs-keyword">new</span> String[<span class="hljs-number">3</span>]; <span class="hljs-comment">// 3 is the size of our desired array</span>
+<span class="hljs-comment">// Note: Any index starts from 0</span>
+secondArray[<span class="hljs-number">0</span>] = <span class="hljs-string">"1"</span>;
+secondArray[<span class="hljs-number">1</span>] = <span class="hljs-string">"2"</span>;
+secondArray[<span class="hljs-number">2</span>] = <span class="hljs-string">"3"</span>;
+</div></code></pre>
+<p>There are some special characters in strings:</p>
+<pre><code class="language-java"><div><span class="hljs-comment">// '\n' new line character</span>
+System.out.println(<span class="hljs-string">"Hello\nWorld!"</span>);
+<span class="hljs-comment">// Terminal:</span>
+<span class="hljs-comment">// Hello</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// World!</span>
+
+<span class="hljs-comment">// '\t' tab character</span>
+System.out.println(<span class="hljs-string">"Hello\tWorld!"</span>);
+<span class="hljs-comment">// Terminal:</span>
+<span class="hljs-comment">// Hello    World!</span>
+
+<span class="hljs-comment">// '\r' return character</span>
+System.out.println(<span class="hljs-string">"Hello\rWorld!"</span>);
+<span class="hljs-comment">// Terminal:</span>
+<span class="hljs-comment">// World!</span>
+
+<span class="hljs-comment">// '\t' tab character</span>
+System.out.println(<span class="hljs-string">"Hello\bWorld!"</span>);
+<span class="hljs-comment">// Terminal:</span>
+<span class="hljs-comment">// Hell World!</span>
+
+<span class="hljs-comment">// Escape characters:</span>
+<span class="hljs-comment">// for example, using '\\' to print '\'</span>
+System.out.println(<span class="hljs-string">"\\"</span>);
+<span class="hljs-comment">// Terminal:</span>
+<span class="hljs-comment">// \</span>
+
+</div></code></pre>
 </li>
 <li>
-<details>
-<summary>Assignment Operator</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operator</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>=</code></td>
-<td style="text-align:center">assign</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>+=</code></td>
-<td style="text-align:center">increment</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>-=</code></td>
-<td style="text-align:center">decrement</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>*=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>/=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>%=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&gt;&gt;=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&lt;&lt;=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>&amp;=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>|=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>^=</code></td>
-<td style="text-align:center">...</td>
-</tr>
-</tbody>
-</table>
-</details>
+<details open><summary>Convention</summary>
+<ul>
+<li>
+<p>Meaningful names</p>
+<pre><code class="language-java"><div><span class="hljs-comment">/** 
+ * Reader should be able easy to figure out what the variable does
+ * without or with minimum reading of your implementation
+ */</span>
+String[] array = { <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span> }; <span class="hljs-comment">// Bad</span>
+String[] weekdays = { <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span> }; <span class="hljs-comment">// Better</span>
+</div></code></pre>
 </li>
 <li>
-<details>
-<summary>Special Operator</summary>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Operator</th>
-<th style="text-align:center">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>++</code></td>
-<td style="text-align:center">same as <code>+=1</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>--</code></td>
-<td style="text-align:center">same as <code>-=1</code></td>
-</tr>
-</tbody>
-</table>
-</details>
+<p>Camel case when using multiple words as name</p>
+<pre><code class="language-java"><div>String[] cpuBrands = { <span class="hljs-string">"Intel"</span>, <span class="hljs-string">"AMD"</span> };
+</div></code></pre>
 </li>
 <li>
-<p>Ternary Operator</p>
+<p>All capital for constants</p>
+</li>
+</ul>
+<pre><code class="language-java"><div><span class="hljs-keyword">int</span> MAX_SIZE = <span class="hljs-number">5</span>;
+
+<span class="hljs-comment">// Even better with `final` keyword</span>
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> THRESHOLD = <span class="hljs-number">2</span>;
+</div></code></pre>
+</li>
+<li>
+<details open><summary><em>Optional (but important): <b>How variables are stored in memory</b></em>*</summary>
 <ul>
-<li><code>CONDITION ? BRANCH_1 : BRANCH_2;</code></li>
+<li>Difference between <em>Value</em> and <em>Reference</em>
+<ul>
+<li>Primitive type: It store <em>values</em> directly (in binary)<pre><code class="language-java"><div><span class="hljs-comment">// Assume our Operating System is 32-bit and size of address is 4 bytes</span>
+
+<span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-comment">// Assume variable `a` starts from 0x00000080</span>
+<span class="hljs-comment">//  0x00000080  =&gt; | 0x00 | 0x00 | 0x00 | 0x01 |</span>
+
+<span class="hljs-keyword">short</span> b = <span class="hljs-number">1</span>;
+<span class="hljs-comment">// Assume variable `b` starts from 0x00000084</span>
+<span class="hljs-comment">// 0x00000084 =&gt; | 0x00 | 0x01 |</span>
+</div></code></pre>
+</li>
+<li>Non-primitive type: It stores the <em>reference</em> (or <em>address</em>) which points to the content.<pre><code class="language-java"><div><span class="hljs-comment">// Note: String in java DOES NOT terminate with a '\0' character like C</span>
+String s = <span class="hljs-string">"abc"</span>;
+<span class="hljs-comment">// Assume the content `"abc"` stores at 0x00001000, each character is stored using its ASCII code</span>
+<span class="hljs-comment">// 0x00001000 =&gt; | 0x65 | 0x66 | 0x67 | </span>
+<span class="hljs-comment">// Assume variable `s` starts from 0x0000008A, it stores the starting address of content</span>
+<span class="hljs-comment">// 0x0000008A =&gt; | 0x00 | 0x00 | 0x10 | 0x00 |</span>
+
+String[] stringArray = <span class="hljs-keyword">new</span> String[<span class="hljs-number">2</span>];
+<span class="hljs-comment">// Assume stringArray starts from 0x0000008E</span>
+<span class="hljs-comment">// According to the number of items in array, it presets (n x sizeof(address)) bytes and stores `null`, therefore 8 bytes in our case</span>
+<span class="hljs-comment">// 0x0000008E =&gt; | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 | 0x00 |</span>
+stringArray[<span class="hljs-number">1</span>] = <span class="hljs-string">"abc"</span>;
+<span class="hljs-comment">// This creates another content `"abc"` at a different address, assume at 0x8000100E</span>
+<span class="hljs-comment">// stringArray[1] here means what stores at stringArray and offset by (1 x sizeof(Address))</span>
+<span class="hljs-comment">// Therefore, first 4 bytes keep unchanged, and later 4 bytes stores 0x8000100E</span>
+<span class="hljs-comment">// 0x0000008E =&gt; | 0x00 | 0x00 | 0x00 | 0x00 | 0x80 | 0x00 | 0x10 | 0x0E |  </span>
+stringArray[<span class="hljs-number">0</span>] = s;
+<span class="hljs-comment">// We can also assign address value directly;</span>
+<span class="hljs-comment">// Therefore, first 4 bytes store same value as `s`</span>
+<span class="hljs-comment">// 0x000008E =&gt; | 0x00 | 0x00 | 0x10 | 0x00| 0x80 | 0x00 | 0x10 | 0x0E |</span>
+</div></code></pre>
+</li>
 </ul>
 </li>
 </ul>
-<h3 id="4-branching--looping">4. Branching &amp; Looping</h3>
-<ul>
-<li>Branching
-<ul>
-<li><code>if</code> statement</li>
-<li><code>switch</code> statement</li>
-</ul>
-</li>
-<li>Looping
-<ul>
-<li><code>while</code> statement</li>
-<li><code>for</code> statement
-<ul>
-<li>Basic: <code>for (INIT; CONDITION; INCREMENT)</code></li>
-<li>For each: <code>for (ITEM DEFINITION: COLLECTION)</code></li>
-</ul>
 </li>
 </ul>
+<h3 id="4-operators">4. Operators</h3>
+<ul>
+<li>
+<details open><summary>Math</summary>
+<pre><code class="language-java"><div><span class="hljs-comment">/** Basic */</span>
+<span class="hljs-comment">// Note: `=` in program means "assign" not "equal"</span>
+
+<span class="hljs-keyword">int</span> a = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">int</span> b = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">int</span> c = a + b; <span class="hljs-comment">// c = 5</span>
+c = b / a; <span class="hljs-comment">// c = 1 because c is int cannot store floating points</span>
+
+<span class="hljs-comment">// Increment</span>
+a += <span class="hljs-number">2</span>; <span class="hljs-comment">// equivalent to a = a + 2; =&gt; a = 4;</span>
+a -= <span class="hljs-number">2</span>; <span class="hljs-comment">// equivalent to a = a - 2; =&gt; a = 2;</span>
+
+a++; <span class="hljs-comment">// equivalent to a += 1; or a = a + 1; =&gt; a = 3;</span>
+a--; <span class="hljs-comment">// equivalent to a -= 1; or a = a - 1; =&gt; a = 2;</span>
+
+++a; 
+<span class="hljs-comment">// when used solely, same as a++; </span>
+<span class="hljs-comment">// However, when used with other operator, (++a) will increment a first while (a++) will increment a last</span>
+<span class="hljs-comment">// For example:</span>
+<span class="hljs-keyword">int</span> counter = <span class="hljs-number">0</span>;
+System.out.println(counter++);  <span class="hljs-comment">// print 0</span>
+System.out.println(counter);  <span class="hljs-comment">// print 1</span>
+counter = <span class="hljs-number">0</span>
+System.out.println(++counter);  <span class="hljs-comment">// print 1</span>
+System.out.println(counter);  <span class="hljs-comment">// print 0</span>
+</div></code></pre>
 </li>
-</ul>
-<h3 id="5-debug">5. Debug</h3>
-<ul>
-<li>Breakpoint</li>
-<li>Call Stack</li>
-</ul>
-<h3 id="6-classes">6. Classes</h3>
-<ul>
-<li><code>static</code></li>
-<li><code>public</code> &amp; <code>private</code> &amp; <code>protected</code></li>
-<li><code>final</code></li>
-<li>Methods</li>
-<li><code>equals</code> &amp; <code>hashcode</code></li>
-<li><code>enum</code> Class</li>
-<li>Nested Class</li>
-</ul>
-<h3 id="7-inheritance--polymorphism">7. Inheritance &amp; Polymorphism</h3>
-<ul>
-<li>Abstract Class</li>
-<li>Interface</li>
-<li><code>extends</code> &amp; <code>implements</code></li>
-<li><code>override</code></li>
-</ul>
-<h3 id="8-recursions">8. Recursions</h3>
-<h3 id="9-exception-handling">9. Exception Handling</h3>
-<h3 id="10-libraries">10. Libraries</h3>
-<ul>
-<li><code>java.util.Collections</code>
-<ul>
-<li><code>List</code></li>
-<li><code>Map</code></li>
-<li><code>Set</code></li>
-<li><code>Queue</code></li>
-<li><code>Deque</code></li>
-</ul>
+<li>
+<details open><summary>Relational</summary>
+<pre><code class="language-java"><div><span class="hljs-comment">/** Mostly used as condition */</span>
+<span class="hljs-keyword">boolean</span> flag = (<span class="hljs-number">1</span> == <span class="hljs-number">1</span>); <span class="hljs-comment">// flag = true</span>
+flag = (<span class="hljs-number">2</span> &gt; <span class="hljs-number">1</span>); <span class="hljs-comment">// flag = true</span>
+flag = (<span class="hljs-number">2</span> &gt;= <span class="hljs-number">2</span>); <span class="hljs-comment">// flag = true </span>
+flag = (<span class="hljs-number">1</span> != <span class="hljs-number">1</span>); <span class="hljs-comment">// flag = false</span>
+flag = (<span class="hljs-keyword">true</span> &amp;&amp; <span class="hljs-keyword">true</span> &amp;&amp; <span class="hljs-keyword">false</span>); <span class="hljs-comment">// flag = false</span>
+flag = (<span class="hljs-keyword">true</span> &amp;&amp; (<span class="hljs-keyword">true</span> || <span class="hljs-keyword">false</span>)); <span class="hljs-comment">// flag = true</span>
+flag = !(<span class="hljs-keyword">true</span> &amp;&amp; (<span class="hljs-keyword">true</span> || <span class="hljs-keyword">false</span>)); <span class="hljs-comment">// flag = false</span>
+</div></code></pre>
 </li>
-<li><code>java.util.Stack</code></li>
-<li><code>java.util.PriorityQueue</code></li>
-<li><code>java.util.stream</code>
-<ul>
-<li><code>map</code></li>
-<li><code>filter</code></li>
-<li><code>reduce</code></li>
-<li><code>collect</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="11-algorithms">11. Algorithms</h3>
-<ul>
-<li>Big O notation</li>
-<li>Sorting
-<ul>
-<li>Quick Sort</li>
-<li>Bubble Sort</li>
-<li>Heap Sort</li>
-<li><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/sorting.html#:~:text=Sorting%20is%20ordering%20a%20list,it%20is%20called%20external%20sorting."><em>Read More</em></a></li>
-</ul>
-</li>
-<li>Binary Search Tree</li>
 </ul>
 
     </body>
