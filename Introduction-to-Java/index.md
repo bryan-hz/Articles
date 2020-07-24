@@ -1,6 +1,6 @@
 # Introduction to Java
 
-*2020-07-15 by Bryan*
+*2020-07-15 by Hongliang Zhu*
 
 <div id="toc">
 

@@ -1,6 +1,6 @@
 # Java Week 1
 
-*2020-07-21 by Bryan*
+*2020-07-21 by Hongliang Zhu*
 
 <div id="toc">
 
