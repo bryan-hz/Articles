@@ -215,7 +215,7 @@
 
       private int id;
       private String label;
-      public Weekday(id, label) {
+      Weekday(id, label) {
           this.id = id;
           this.label = label;
       }
