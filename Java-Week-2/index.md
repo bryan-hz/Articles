@@ -9,6 +9,8 @@
     - [2. Class](#2-class)
     - [3. Abstract](#3-abstract)
     - [4. Interface](#4-interface)
+    - [5. Enum](#5-enum)
+    - [6. Nested Class](#6-nested-class)
 
 </div>
 
@@ -182,3 +184,95 @@
       void move() {}
     }
     ```
+
+### 5. Enum
+
+* <details open><summary>Basic Enum Class</summary>
+
+  ```java
+  public enum Weekday {
+      MONDAY,
+      TUESDAY,
+      WEDNESDAY
+  }
+  ```
+  ```java
+  public class Main {
+      public static void main(String[] argv) {
+        System.out.println(Weekday.MONDAY);
+        // >> MONDAY
+      }
+  }
+  ```
+
+* <details open><summary>Enum Class with Attributes or Methods</summary>
+
+  ```java
+  public enum Weekday {
+      MONDAY(1, "Monday"),
+      TUESDAY(2, "Tuesday"),
+      WEDNESDAY(3, "Wednesday");
+
+      private int id;
+      private String label;
+      public Weekday(id, label) {
+          this.id = id;
+          this.label = label;
+      }
+
+      public String toString() {
+          return String.format("No.%d %s", id, label);
+      }
+  }
+  ```
+  ```java
+  public class Main {
+      public static void main(String[] argv) {
+          System.out.println(Weekday.MONDAY);
+          // >> No.1 Monday
+      }
+  }
+  ```
+
+### 6. Nested Class
+
+* <details open><summary>Non-Static Inner Class</summary>
+
+  ```java
+  public class Outer {
+
+      public int x = 0;
+
+      class Inner {
+
+          public int x = 1;
+
+          void testShadowing(int x) {
+              System.out.println("x = " + x);
+              System.out.println("this.x = " + this.x);
+              System.out.println("Outer.this.x = " + Outer.this.x);
+          }
+      }
+
+      public static void main(String... args) {
+          Outer.Inner inner = new Outer().new Inner();
+          inner.testShadowing(23);
+          // >> x = 23
+          // >> this.x = 1
+          // >> Outer.this.x = 0
+      }
+  }
+  ```
+
+* <details open><summary>Static Inner Class</summary>
+
+  ```java
+  public class Outer {
+      static class Inner {
+      }
+
+      public static void main(String[] argv) {
+          Outer.Inner inner = new Outer.Inner();
+      }
+  }
+  ```

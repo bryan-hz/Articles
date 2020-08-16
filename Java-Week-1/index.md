@@ -402,7 +402,7 @@
     ```
     ***what happens in `for` loop:***
 
-    ![mermaid-diagram](forLoopFlow.svg)
+    ![mermaid-diagram](https://blog.hongliangzhu.com/Java-Week-1/forLoopFlow.svg)
 
 
   * <details open><summary>For-each loop (A neater way for iterating collections)</summary>
