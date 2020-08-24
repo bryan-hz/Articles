@@ -10,5 +10,9 @@
   "Java-Week-2": {
     "title": "Java Week 2",
     "description": "What is OOP? How To Create A Class? What Is A Abstract Class? What Is a Interface? What Is a Enum Class? What If I Need A Nested Class?"
+  },
+  "Popular-Data-Structures": {
+    "title": "Popular Data Structures",
+    "description": ""
   }
 }
