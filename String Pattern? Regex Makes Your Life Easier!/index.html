@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>String Pattern? Regex Makes Your Life Easier!</title>
+        <title>1. String Pattern? Regex Makes Your Life Easier!</title>
         <style>
 /* From extension bierner.markdown-checkbox */
 .contains-task-list {
@@ -893,7 +893,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -907,12 +908,312 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
     <body class="vscode-light">
-        <h1 id="string-pattern-regex-makes-your-life-easier">String Pattern? Regex Makes Your Life Easier!</h1>
+        <h1 id="1-string-pattern-regex-makes-your-life-easier">1. String Pattern? Regex Makes Your Life Easier!</h1>
 <p><em>2020-08-07 by Hongliang Zhu</em></p>
+<div id="toc">
+<ul>
+<li><a href="#1-string-pattern-regex-makes-your-life-easier">1. String Pattern? Regex Makes Your Life Easier!</a>
+<ul>
+<li><a href="#101-definition">1.0.1. Definition</a></li>
+<li><a href="#102-basics">1.0.2. Basics</a></li>
+<li><a href="#103-quantifiers">1.0.3. Quantifiers</a></li>
+<li><a href="#104-class-characters">1.0.4. Class Characters</a></li>
+<li><a href="#105-special-characters">1.0.5. Special Characters</a></li>
+<li><a href="#106-groupings">1.0.6. Groupings</a></li>
+<li><a href="#107-assertions">1.0.7. Assertions</a></li>
+<li><a href="#108-character-in-replacement-string">1.0.8. Character In Replacement String</a></li>
+<li><a href="#109-references">1.0.9. References</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="101-definition">1.0.1. Definition</h3>
+<ul>
+<li>
+<details open><summary>What is Regex?</summary>
+<blockquote>
+<p>Regex, also commonly called regular expression, is a combination of characters that <strong>define a particular search pattern</strong>.</p>
+</blockquote>
+</li>
+<li>
+<details open><summary>When Can I Use Regex?</summary>
+<blockquote>
+<p>Regex can be used for matching a string of text, find and replace operations, data validation, etc. For example, with regex you can easily check a user's input for common misspellings of a particular word.</p>
+</blockquote>
+</li>
+<li>
+<details open><summary>Pros and Cons</summary>
+<p><em>Pros</em>: It is a efficient way to do matching on inputs; Those regular expressions are configurable and can be separated from code.</p>
+<p><em>Cons</em>: Hard to read, the performance is a concern.</p>
+</li>
+</ul>
+<h3 id="102-basics">1.0.2. Basics</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHARACTER</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>^</code></td>
+<td style="text-align:center">The start of a string</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$</code></td>
+<td style="text-align:center">The end of a string</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>.</code></td>
+<td style="text-align:center">Wildcard which matches any character, except newline (\n)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>|</code></td>
+<td style="text-align:center">Or, matches the pattern defined on either side, eg: <code>a|b</code> matches <code>a</code> or <code>b</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\</code></td>
+<td style="text-align:center">Used to escape a special character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>a</code></td>
+<td style="text-align:center">The character <code>a</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ab</code></td>
+<td style="text-align:center">The string <code>ab</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="103-quantifiers">1.0.3. Quantifiers</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">QUANTIFIER</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>*</code></td>
+<td style="text-align:center">Matches 0 or more of the previous</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>?</code></td>
+<td style="text-align:center">Matches 0 or 1 of the previous</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center">Matches 1 or more of the previous</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>{5}</code></td>
+<td style="text-align:center">Matches exactly 5 times of the previous</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>{5, 10}</code></td>
+<td style="text-align:center">Matches 5 to 10 times of the previous</td>
+</tr>
+</tbody>
+</table>
+<h3 id="104-class-characters">1.0.4. Class Characters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHARACTER</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>\s</code></td>
+<td style="text-align:center">Matches a whitespace character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\S</code></td>
+<td style="text-align:center">Matches a non-whitespace character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\w</code></td>
+<td style="text-align:center">Matches a word character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\W</code></td>
+<td style="text-align:center">Matches a non-word character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\d</code></td>
+<td style="text-align:center">Matches a digit character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\D</code></td>
+<td style="text-align:center">Matches a non-digit character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>[\b]</code></td>
+<td style="text-align:center">Matches a backspace character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\c</code></td>
+<td style="text-align:center">Matches a control character</td>
+</tr>
+</tbody>
+</table>
+<h3 id="105-special-characters">1.0.5. Special Characters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHARACTER</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center">Matches a newline</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\t</code></td>
+<td style="text-align:center">Matches a tab</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\r</code></td>
+<td style="text-align:center">Matches a carriage return</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\ZZZ</code></td>
+<td style="text-align:center">Matches octal character ZZZ</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\xZZZ</code></td>
+<td style="text-align:center">Matches hex character ZZZ</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\0</code></td>
+<td style="text-align:center">Matches a null character</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\v</code></td>
+<td style="text-align:center">Matches a vertical tab</td>
+</tr>
+</tbody>
+</table>
+<h3 id="106-groupings">1.0.6. Groupings</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">GROUPS</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>(xyz)</code></td>
+<td style="text-align:center">Grouping of characters</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>(?:xyz)</code></td>
+<td style="text-align:center">Non-capturing group of characters. (Do matching but not record in result)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>[xyz]</code></td>
+<td style="text-align:center">Matches a range of characters (e.g. x or y or z)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>[^xyz]</code></td>
+<td style="text-align:center">Matches a character other than x or y or z</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>a-q</code></td>
+<td style="text-align:center">Matches a character from within a specified range</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0-7</code></td>
+<td style="text-align:center">Matches a digit from within a specified range</td>
+</tr>
+</tbody>
+</table>
+<h3 id="107-assertions">1.0.7. Assertions</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ASSERTION</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>(?=xyz)</code></td>
+<td style="text-align:center">Positive lookahead</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>(?!xyz)</code></td>
+<td style="text-align:center">Negative lookahead</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>?!= or ?&lt;!</code></td>
+<td style="text-align:center">Negative lookbehind</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\b</code></td>
+<td style="text-align:center">Word Boundary, beginning or end of the word (usually a position between /w and /W)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\B</code></td>
+<td style="text-align:center">Word Boundary, not the beginning or not he end of the word</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>?#</code></td>
+<td style="text-align:center">Comment</td>
+</tr>
+</tbody>
+</table>
+<h3 id="108-character-in-replacement-string">1.0.8. Character In Replacement String</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHARACTER</th>
+<th style="text-align:center">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>$`</code></td>
+<td style="text-align:center">Insert before matched string</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$'</code></td>
+<td style="text-align:center">Insert after matched string</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$+</code></td>
+<td style="text-align:center">Insert last matched</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$&amp;</code></td>
+<td style="text-align:center">Insert entire match</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>$n</code></td>
+<td style="text-align:center">Insert nth captured group</td>
+</tr>
+</tbody>
+</table>
+<p><em>NOTE: For this part, in python <code>re.sub(pattern, sub, target)</code>, <code>\1</code> is the replacement for <code>$&amp;</code> and others are invalid</em></p>
+<h3 id="109-references">1.0.9. References</h3>
+<ul>
+<li>
+<p><a href="https://www.keycdn.com/support/regex-cheatsheet">Regex Cheat Sheet</a></p>
+</li>
+<li>
+<p><a href="https://regex101.com">Regex 101</a></p>
+</li>
+</ul>
 
     </body>
     </html>
