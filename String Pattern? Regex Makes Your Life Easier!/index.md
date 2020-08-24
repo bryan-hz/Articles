@@ -1,24 +1,24 @@
-# 1. String Pattern? Regex Makes Your Life Easier!
+# String Pattern? Regex Makes Your Life Easier!
 
 *2020-08-07 by Hongliang Zhu*
 
 <div id="toc">
 
-- [1. String Pattern? Regex Makes Your Life Easier!](#1-string-pattern-regex-makes-your-life-easier)
-    - [1.0.1. Definition](#101-definition)
-    - [1.0.2. Basics](#102-basics)
-    - [1.0.3. Quantifiers](#103-quantifiers)
-    - [1.0.4. Class Characters](#104-class-characters)
-    - [1.0.5. Special Characters](#105-special-characters)
-    - [1.0.6. Groupings](#106-groupings)
-    - [1.0.7. Assertions](#107-assertions)
-    - [1.0.8. Character In Replacement String](#108-character-in-replacement-string)
-    - [1.0.9. References](#109-references)
+- [String Pattern? Regex Makes Your Life Easier!](#string-pattern-regex-makes-your-life-easier)
+    - [1. Definition](#1-definition)
+    - [2. Basics](#2-basics)
+    - [3. Quantifiers](#3-quantifiers)
+    - [4. Class Characters](#4-class-characters)
+    - [5. Special Characters](#5-special-characters)
+    - [6. Groupings](#6-groupings)
+    - [7. Assertions](#7-assertions)
+    - [8. Character In Replacement String](#8-character-in-replacement-string)
+    - [References](#references)
 
 </div>
 
 
-### 1.0.1. Definition
+### 1. Definition
 
 * <details open><summary>What is Regex?</summary>
 
@@ -35,7 +35,7 @@
   *Cons*: Hard to read, the performance is a concern.
 
 
-### 1.0.2. Basics
+### 2. Basics
 
 | CHARACTER |                                 DESCRIPTION                                  |
 | :-------: | :--------------------------------------------------------------------------: |
@@ -48,7 +48,7 @@
 |   `ab`    |                               The string `ab`                                |
 
 
-### 1.0.3. Quantifiers
+### 3. Quantifiers
 
 | QUANTIFIER |               DESCRIPTION               |
 | :--------: | :-------------------------------------: |
@@ -59,7 +59,7 @@
 | `{5, 10}`  |  Matches 5 to 10 times of the previous  |
 
 
-### 1.0.4. Class Characters
+### 4. Class Characters
 
 | CHARACTER |            DESCRIPTION             |
 | :-------: | :--------------------------------: |
@@ -73,7 +73,7 @@
 |   `\c`    |    Matches a control character     |
 
 
-### 1.0.5. Special Characters
+### 5. Special Characters
 
 | CHARACTER |         DESCRIPTION         |
 | :-------: | :-------------------------: |
@@ -86,7 +86,7 @@
 |   `\v`    |   Matches a vertical tab    |
 
 
-### 1.0.6. Groupings
+### 6. Groupings
 
 |  GROUPS   |                                DESCRIPTION                                |
 | :-------: | :-----------------------------------------------------------------------: |
@@ -98,7 +98,7 @@
 |   `0-7`   |               Matches a digit from within a specified range               |
 
 
-### 1.0.7. Assertions
+### 7. Assertions
 
 |  ASSERTION   |                                    DESCRIPTION                                     |
 | :----------: | :--------------------------------------------------------------------------------: |
@@ -110,7 +110,7 @@
 |     `?#`     |                                      Comment                                       |
 
 
-### 1.0.8. Character In Replacement String
+### 8. Character In Replacement String
 
 |    CHARACTER    |         DESCRIPTION          |
 | :-------------: | :--------------------------: |
@@ -123,7 +123,7 @@
   *NOTE: For this part, in python `re.sub(pattern, sub, target)`, `\1` is the replacement for `$&` and others are invalid*
 
 
-### 1.0.9. References
+### References
 
 * [Regex Cheat Sheet](https://www.keycdn.com/support/regex-cheatsheet)
 
